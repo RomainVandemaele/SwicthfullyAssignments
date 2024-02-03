@@ -46,6 +46,14 @@ ORDER BY total DESC;
 
 --challenge Sequels in SQL
 
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    released INTEGER,
+    sequel_id INTEGER);
+
+SELECT m.title, s.title
+FROM movies m LEFT OUTER JOIN movies s ON m.sequel_id = s.id;
+
 --challenge FrienBook
 
 
