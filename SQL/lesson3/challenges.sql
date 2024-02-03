@@ -93,7 +93,8 @@ INSERT INTO movie_stars(fullname,age,spouse_id) VALUES
 ("Brad Pitt",45,2), 
 ("Angelina Jolie",42,1),
 ("Chris Pratt",49,NULL),
-("Leonardo Dicaprio",37,NULL);
+("Leonardo Dicaprio",37,NULL),
+("Roamin",29,NULL);
 
 CREATE TABLE movies (
     movie_id  INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -113,9 +114,13 @@ SELECT s1.fullname, s2.fullname
 FROM movie_stars s1 JOIN movie_stars s2 ON s1.spouse_id = s2.star_id;
 
 --couples and movies where they play together
-SELECT s1.fullname, s2.fullname, m.title
+SELECT s1.fullname, s2.fullname, m.name
 FROM movie_stars s1 
 JOIN movie_stars s2 ON s1.spouse_id = s2.star_id
 JOIN movies m ON (m.star_id1 = s1.star_id AND m.star_id2 = s2.star_id) OR (m.star_id1 = s2.star_id AND m.star_id2 = s1.star_id);
 
+
+SELECT s.fullname, COUNT(m.name)
+FROM movie_stars s LEFT OUTER JOIN   movies m ON s.star_id = m.star_id1 OR s.star_id = m.star_id2
+GROUP BY s.fullname;
 
