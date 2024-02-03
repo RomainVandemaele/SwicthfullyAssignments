@@ -80,4 +80,42 @@ FROM friends f
 JOIN persons p1 ON f.person1_id = p1.id 
 JOIN persons p2 ON f.person2_id = p2.id;
 
---project Famous people
+--project Famous people 
+
+CREATE TABLE movie_stars (
+    star_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    spouse_id INTEGER
+);
+
+INSERT INTO movie_stars(fullname,age,spouse_id) VALUES
+("Brad Pitt",45,2), 
+("Angelina Jolie",42,1),
+("Chris Pratt",49,NULL),
+("Leonardo Dicaprio",37,NULL);
+
+CREATE TABLE movies (
+    movie_id  INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    release_year INTEGER,
+    star_id1 INTEGER,
+    star_id2 INTEGER
+);
+
+INSERT INTO movies(name,release_year,star_id1,star_id2) VALUES  
+("Mr. and Mrs Smith",2005,1,2),
+("Gardian of the galaxy",2014,3,NULL),
+("Catch me if you can",2002,4,NULL);
+
+--couples
+SELECT s1.fullname, s2.fullname
+FROM movie_stars s1 JOIN movie_stars s2 ON s1.spouse_id = s2.star_id;
+
+--couples and movies where they play together
+SELECT s1.fullname, s2.fullname, m.title
+FROM movie_stars s1 
+JOIN movie_stars s2 ON s1.spouse_id = s2.star_id
+JOIN movies m ON (m.star_id1 = s1.star_id AND m.star_id2 = s2.star_id) OR (m.star_id1 = s2.star_id AND m.star_id2 = s1.star_id);
+
+
