@@ -23,6 +23,26 @@ WHERE P.name = 'Bobby McBobbyFace';
 
 --challenge Customer's orders
 
+CREATE TABLE customers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT);
+
+CREATE TABLE orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customer_id INTEGER,
+    item TEXT,
+    price REAL);
+
+
+SELECT C.name, C.email, O.item, O.price
+FROM customers C LEFT OUTER JOIN orders O ON C.id = O.customer_id;
+
+
+SELECT C.name, C.email, SUM(O.price) AS total
+FROM customers C LEFT OUTER JOIN orders O ON C.id = O.customer_id
+GROUP BY C.name
+ORDER BY total DESC; 
 
 --challenge Sequels in SQL
 
