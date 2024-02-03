@@ -56,5 +56,28 @@ FROM movies m LEFT OUTER JOIN movies s ON m.sequel_id = s.id;
 
 --challenge FrienBook
 
+CREATE TABLE persons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+
+CREATE table hobbies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+
+CREATE table friends (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person1_id INTEGER,
+    person2_id INTEGER);
+
+
+SELECT p.fullname, h.name
+FROM persons p JOIN hobbies h ON p.id = h.person_id;
+
+SELECT p1.fullname, p2.fullname
+FROM friends f
+JOIN persons p1 ON f.person1_id = p1.id 
+JOIN persons p2 ON f.person2_id = p2.id;
 
 --project Famous people
