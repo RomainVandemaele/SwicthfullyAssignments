@@ -186,6 +186,39 @@ WHERE Legendary = 'True'
 GROUP BY generation
 HAVING nb_legandary > 10;
 
+SELECT generation,COUNT(*) AS nb_legendary
+FROM pokemon 
+WHERE Legendary = 'True'
+GROUP BY generation
+ORDER BY nb_legendary;
+
+--select pokemon of gen 4 where therir attack is in range of the attack of gen 3 pokemon of type Water
+SELECT name, Attack
+FROM pokemon
+WHERE Attack BETWEEN
+(SELECT MIN(Attack) FROM pokemon WHERE generation = 3 AND (Type_1 = 'Water' OR Type_2 = 'Water'  ))
+ AND
+ (SELECT MAX(Attack) FROM pokemon WHERE generation = 3 AND (Type_1 = 'Water' OR Type_2 = 'Water'  ));
+ AND generation = 4;
+
+
+SELECT name, MAX(Attack) FROM pokemon; --190
+SELECT name, AVG(Attack) FROM pokemon; -- 79
+
+SELECT COUNT(*), 
+CASE 
+    WHEN Attack > ROUND(0.9*190) THEN 'A' 
+    WHEN Attack > ROUND(0.7*190) THEN 'B' 
+    WHEN Attack > ROUND(0.5*190) THEN 'C'
+    WHEN Attack > (SELECT name, AVG(Attack) FROM pokemon) THEN 'D'
+    ELSE 'F' 
+END AS "attack_grade"
+FROM pokemon
+GROUP BY "attack_grade";
+
+
+
+
 INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (1,'Bulbasaur','Grass','Poison',318,45,49,49,65,65,45,1,'False');
 INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (2,'Ivysaur','Grass','Poison',405,60,62,63,80,80,60,1,'False');
 INSERT INTO pokemon(Number,Name,Type_1,Type_2,Total,HP,Attack,Defense,Sp_Atk,Sp_Def,Speed,Generation,Legendary) VALUES (3,'Venusaur','Grass','Poison',525,80,82,83,100,100,80,1,'False');
