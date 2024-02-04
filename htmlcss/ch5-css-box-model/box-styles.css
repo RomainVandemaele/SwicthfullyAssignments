@@ -1,3 +1,14 @@
+/*Reset formlatting of the browser*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
 h1, p {
     background-color: #DDE0E3;    /* Light gray */
 }
@@ -25,4 +36,19 @@ em, strong {
 strong {
   margin: 50px; /*inline margin ignore top and bottom */
   /*padding: 50px;*/
+}
+
+
+div {
+  color: #FFF;
+  background-color: #5995DA;
+  font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid #5D6063;
+  border-radius: 5px;
+
+  width: 200px;
+  box-sizing: border-box; 
+  margin: 20px auto;
 }
