@@ -1,0 +1,28 @@
+h1, p {
+    background-color: #DDE0E3;    /* Light gray */
+}
+
+h1 {
+  padding: 50px;
+  /*border: 1px solid #5D6063;  size style color*/
+  border-bottom: 1px solid #5D6063;
+}
+
+p {
+  padding: 20px 0 20px 10px;
+  margin-bottom: 50px;          /* Add this */
+  margin-top: 25px;
+}
+
+/*p { padding: 20px 10px;  /* Vertical  Horizontal } */
+  
+em, strong {
+  background-color: #B2D6FF;    /* Light blue */
+  display: inline; /*block to be displayed as a normal block ex on one line*/
+}
+
+
+strong {
+  margin: 50px; /*inline margin ignore top and bottom */
+  /*padding: 50px;*/
+}
