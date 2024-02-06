@@ -5,10 +5,14 @@
   }
 
 
-  .page { /* Set fixed wifth for the page */
+  .page {
     width: 900px;
     margin: 0 auto;
-    border: 1px solid red;  /* Add this */
+  }
+  
+  .container {
+    overflow: hidden;
+    background-color: #EAEDF0;
   }
 
 .menu {
@@ -34,5 +38,13 @@
     clear: both;            /*Clear float means taking them into account for height*/
     height: 200px;
     background-color: #D6E9FE;    /* Light blue */
+  }
+
+  .column {
+    float: left;
+    width: 31%;
+    margin: 20px 1.15%;
+    height: 160px;
+    background-color: #B2D6FF;    /* Medium blue */
   }
   
