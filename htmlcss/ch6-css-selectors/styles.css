@@ -1,3 +1,8 @@
+.page {
+    width: 600px;
+    margin: 0 auto;
+}
+
 .synopsis {
     color: #7E8184;        /* Light gray */
     font-style: italic;
@@ -15,4 +20,10 @@
   
     width: 200px;
     margin: 20px auto;
+}
+
+.call-to-action {
+    font-style: italic;
+    background-color: #EEB75A;    /* Yellow */
   }
+
