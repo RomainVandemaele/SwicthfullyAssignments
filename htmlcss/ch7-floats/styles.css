@@ -35,11 +35,9 @@
   }
   
   .footer {
-    clear: both;            /*Clear float means taking them into account for height*/
-    height: 200px;
-    background-color: #D6E9FE;    /* Light blue */
+    overflow: hidden;
+    background-color: #D6E9FE;
   }
-
   .column {
     float: left;
     width: 31%;
