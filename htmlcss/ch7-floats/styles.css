@@ -8,6 +8,7 @@
   .page { /* Set fixed wifth for the page */
     width: 900px;
     margin: 0 auto;
+    border: 1px solid red;  /* Add this */
   }
 
 .menu {
@@ -23,11 +24,14 @@
   }
   
   .content {
+    float: left;                  /* two flaot left got next to each other horizontaly*/
+    width: 650px;                 /* Add this */
     height: 500px;
     background-color: #F5CF8E;    /* Yellow */
   }
   
   .footer {
+    clear: both;            /*Clear float means taking them into account for height*/
     height: 200px;
     background-color: #D6E9FE;    /* Light blue */
   }
