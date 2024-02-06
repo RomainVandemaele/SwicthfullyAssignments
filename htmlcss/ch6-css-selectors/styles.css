@@ -59,3 +59,18 @@
 .call-to-action:visited:active {
   background-color: #EEB75A;     /* Yellow */
 }
+
+
+p:first-of-type {
+    color: #7E8184;
+    font-style: italic;
+}
+
+p:last-of-type {
+    margin-bottom: 50px;
+}
+
+.page > p:first-of-type {
+    color: #7E8184;
+    font-style: italic;
+}
