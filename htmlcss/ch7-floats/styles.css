@@ -5,6 +5,10 @@
   }
 
 
+  .page { /* Set fixed wifth for the page */
+    width: 900px;
+    margin: 0 auto;
+  }
 
 .menu {
     height: 100px;
@@ -12,7 +16,9 @@
   }
   
   .sidebar {
+    float: left; 
     height: 300px;
+    width: 200px;
     background-color: #F09A9D;    /* Red */
   }
   
